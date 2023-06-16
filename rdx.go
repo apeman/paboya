@@ -10,7 +10,7 @@ import (
 
 var conn = gredis.NewClient(&gredis.Options{
 	Network: "tcp",
-	Addr:    "redis://red-ci651lh8g3n4q9vvcrjg:6379",
+	Addr:    "red-ci651lh8g3n4q9vvcrjg",
 })
 
 func init() {
