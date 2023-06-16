@@ -9,7 +9,7 @@ import (
     "github.com/julienschmidt/httprouter"
 )
 
-const PORT = "localhost:4000"
+const PORT = ":6438"
 var tmpl = template.Must(template.ParseGlob("templates/*.html"))
 
 
@@ -75,10 +75,4 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			tmpl.ExecuteTemplate(w, "footer.html", nil)
 		}
 	}
-}
-
-type allPosts struct {
-	PostId string
-	PostTitle string
-	PostBody string
 }
