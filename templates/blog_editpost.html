@@ -1,0 +1,14 @@
+
+{{template "blog_nav"}}
+<form method="POST" action="/edit/{{.PostId}}" >
+    <input type="hidden" name="token" value="{{.PostId}}">
+		<input type="text" name="posttitle" placeholder="Title" value="{{.PostTitle}}">
+		<textarea name="postbody" >{{.PostBody}}</textarea><br>
+		<input type="submit">
+	</form>
+	
+{{ if .LoggedIn }}
+<form method="POST" action="/delete/{{.PostId}}">
+	<button>Delete</button>
+</form>
+{{ end }}

@@ -1,0 +1,197 @@
+
+        /************************************** $CRITICAL CSS /**************************************/
+* { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-kerning: auto; }
+
+html { font-family: sans-serif; -webkit-text-size-adjust: 100%; }
+
+body { -webkit-font-smoothing: antialiased; background: #fffff8; color: #111; counter-reset: sidenote-counter; font-family: 'Breezesans', serif; height: 100%; margin: 0 auto; max-width: 1440px; font-size: 18px; }
+
+*, *:before, *:after { box-sizing: border-box !important; }
+
+section { column-width: 19em; column-gap: 0.5rem; }
+
+/*article { display: inline-block; margin-bottom: 0.5rem; padding: 1rem; width: 100%; }*/
+
+main {  margin: 0 auto; width: 100%; background-color: #fff; }
+
+p { text-align: left; margin: 1rem 0; }
+
+h1 { font-size: 3rem; font-weight: 800; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0; text-transform: capitalize; }
+
+h1 { font-size: 3.2rem; font-style: normal; margin-top: 1rem; }
+
+h2 { font-size: 2.2rem; margin-bottom: 2.2rem; }
+
+h3 { font-size: 1.7rem; }
+
+p, table, blockquote, pre, img, .mini-note, ul li, ol li { box-sizing: border-box; }
+
+li ul li, li ol li { max-width: 100%; }
+
+p { position: relative; }
+
+a, a:visited { color: #3243db; text-decoration: none; }
+
+a:hover, a:visited:hover { color: #dc2828; }
+
+blockquote { font-style: italic; margin: 0; padding: 2rem 0 2rem 4rem; }
+
+blockquote footer { font-style: normal; font-size: 1.1rem; text-align: right; }
+
+figure { align-items: flex-start; display: flex; margin: 0; padding: 0; position: relative; }
+
+hr { background: #111; border: 0; height: 1px; margin: 1rem 0; width: 100%; }
+
+/************************************** $DEFAULT ELEMENTS /**************************************/
+table { border-collapse: separate; border-spacing: 1.5rem .5rem; margin: 0 6rem 0 -1.5rem; text-align: left; width: 100%; }
+
+table th, table td { font-weight: bold; padding: 0; }
+
+table th:not(:first-child), table td:not(:first-child) { text-align: right; }
+
+table thead th { border-bottom: 1px solid #111; }
+
+figure { /*span*/ }
+
+figure .marginnote, figure .sidenote { left: auto; position: relative; }
+
+/************************************** $NAVIGATION /**************************************/
+nav {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+nav a, nav form {
+    margin: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.3rem;
+}
+nav a:first-child { margin-left: 0; }
+
+/************************************** $MEDIA QUERIES - TABLET /**************************************//*
+@media (max-width: 850px) { body { width: calc(100% - 20px); } p, table, blockquote, pre, img, .mini-note, ul li, ol li { max-width: 100%; } nav .menu-icon { display: inline-block; } nav ul.site-nav { display: none; } nav ul.site-nav li { display: block; margin: 1rem 0; width: 100%; } nav ul.site-nav li a, nav ul.site-nav li a:visited { display: block; width: 100%; } figure { flex-direction: column; } }*/
+
+/*------------rgb(19, 217, 35)----------------*/
+.prev { max-width: 50%; float: right; text-align: right; }
+
+.next { max-width: 50%; float: left; text-align: left; }
+
+.pagination { font-size: 1.25rem; padding: 1rem 0; max-width: 700px; }
+
+.pagination::after { content: ""; clear: both; display: block; }
+
+.pagination a { color: blueviolet; font-weight: bold; }
+
+.coverimg { width: 100px; float: left; padding: 4px 8px 4px 0px; }
+
+::-moz-selection { background: #f7d2d2; color: #333; text-shadow: none; }
+
+::selection { background: #9affc8; color: #000; text-shadow: none; }
+
+.sitename { color: #664602 !important; font-size: 3rem; margin: 1rem 0 1rem; }
+
+.title-tags { color: #777; font-size: 1.125rem; margin: 10px auto; }
+
+.tags { background-color: #444; color: #fff; padding: 2px 5px; border-radius: 2px; text-decoration: none; }
+
+.imgpost { text-align: center; }
+
+.imgpost img { max-height: 400px; max-width: 100%;}
+img {  max-width: 100%;}
+/*------------------*/
+ul, ol { padding: 0; list-style-position: inside; }
+
+table { border-collapse: collapse; text-align: left; width: 100%; }
+
+table tr { border-bottom: 1px solid black; }
+
+table td { padding: 0.5rem; }
+
+footer { margin: 1rem 0; text-align: center; color: inherit; }
+
+h3 { font-size: 1.75rem; }
+
+.postdesc { font-size: 1.2rem; }
+
+.postlink { font-size: 2rem; }
+
+.postdate { font-size: 0.9rem; }
+
+
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+  
+  /* Then style the iframe to fit in the container div with full height and width */
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+   .showSlide {  
+       display: none  
+   }  
+   .showSlide img {
+    max-height: 500px;
+    width: 100%;
+    min-width: 100px;
+    height: auto;
+    max-width: 520px;
+}
+   .slidercontainer {  
+       max-width: 1000px;  
+       position: relative;  
+       margin: auto;  
+   }  
+   .left, .right {
+    cursor: pointer;
+    position: absolute;
+    top: 36%;
+    width: auto;
+    padding: 16px;
+    margin-top: -20px;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+   .right {  
+       right: 0;  
+       border-radius: 3px 0 0 3px;  
+   }  
+       .left:hover, .right:hover {  
+           background-color: rgba(115, 115, 115, 0.8);  
+       }  
+   .content {  
+       font-size: 30px;  
+       padding: 8px 12px;  
+       top: 10px;  
+       width: 100%;  
+       text-align: center;  
+   }  
+   .active {  
+       color: #eff5d4;  
+       background-color: #717171;  
+   }  
+textarea {
+	resize: vertical;
+	width : 100%;
+	height: 140px;
+	font-size: inherit;
+	padding: 8px;
+    margin: 0.3rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Index</title>
+  </head>
+<body onload="myFunction()">
+
+<main>
+<form class="formcon " id="search-form" name="search-form" onsubmit="return search()">
+                <div class="logoicon">
+                    <svg class="clrful" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img" fill="none" stroke-width="3">
+                        <defs>
+                            <linearGradient id="gradient6" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="25%" stop-color="#FFC107"></stop>
+                                <stop offset="75%" stop-color="#FF9800"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path d="M18.36 6.64a9 9 0 1 1-12.73 0" stroke="url(#gradient6)"></path>
+                        <line x1="12" y1="2" x2="12" y2="12" stroke="#FF9800"></line>
+                    </svg>
+                </div>
+                <div class="d3 " style="width:100%; ">
+                    <input class="form-control search-field " type="search" id="query" style="width:100%;" placeholder="#tags, people, shopping">
+                    <button class="search-btn " type="submit" id="search-btn" name="search-btn" value="">
+                        <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24" class="srchicon ">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            </main>
+<style>
+
+body {
+    font-family: breezesans;
+    font-weight: 700;
+    line-height: 24px;
+    /* background: #40d446; */
+    font-size: 17px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    vertical-align: baseline;
+    list-style-type: none;
+    border: 0;
+    outline: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 0.5rem;
+    background: white;
+    height: 100%;
+}
+.formcon {
+    border: 2px solid #00c73c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 13.6rem 0;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+}
+.logoicon {
+    border-right: 1px solid #ccc;
+    padding: 0 0.3rem;
+}
+
+.clrful {
+    padding: 0px;
+    margin: 0 0.3rem;
+    stroke: #00c73c;
+    height: 2.4rem;
+    width: 2.4rem;
+    stroke-width: 2;
+    border-radius: 5px;
+    fill: none;
+    box-shadow: none;
+    display: block;
+    /*stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: .2s ease;*/
+}
+.d3 {
+    display: flex;
+    /* background: #ffffff; */
+    /* border: 2px solid #797979; */
+    align-items: center;
+    /* border-radius: 30px; */
+    width: 100%;
+}
+.search-field {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0px;
+    outline: none;
+    padding: 0rem 0.6rem;
+    background: transparent;
+    height: 3.4rem;
+    color: #00c608;
+    font-family: breezesans;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.search-btn {
+    height: 3rem;
+    padding: 0rem 0.6rem;
+    background-color: #ffffff00;
+    border: none;
+    outline: none;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    align-items: center;
+}
+.srchicon {
+    stroke: #21d028;
+    fill: none;
+    stroke-width: 2;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+</style>
+</body>
+</html>
