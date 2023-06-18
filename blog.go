@@ -30,6 +30,8 @@ func Blog(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 type BlogPost struct {
 	PostTitle string
 	PostBody string
+	Location string
+	Event string
 	PostId string
 	LoggedIn string
 	LoggedOut string
@@ -64,8 +66,10 @@ func CreateBlogPost(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 			fmt.Println("path", r.URL.Path)
 			posttitle := r.FormValue("posttitle")
 			postbody := r.FormValue("postbody")
+			location := r.FormValue("location")
+			event := r.FormValue("event")
 			token := r.FormValue("token")
-			rdxHset("newpost", token, posttitle + ":::" + postbody) 
+			rdxHset("newpost", token, posttitle + ":::" + postbody + ":::" + location + ":::" + event) 
 			http.Redirect(w, r, "/view/"+token, http.StatusSeeOther)
 		}
 		default : {
@@ -82,8 +86,8 @@ func ViewBlogPost(w http.ResponseWriter, r *http.Request, postid httprouter.Para
 				token := postid.ByName("postid")
 				postDetails := rdxHget("newpost", token)
 				fmt.Println(postDetails)
-				posttitle, postbody := readString(postDetails)
-				res := BlogPost{PostTitle: posttitle, PostBody: postbody, PostId: token,LoggedIn: "true"}
+				posttitle, postbody, location, event := readString(postDetails)
+				res := BlogPost{PostTitle: posttitle, PostBody: postbody, PostId: token, Location: location, Event: event, LoggedIn: "true"}
 				tmpl.ExecuteTemplate(w, "head.html", nil)
 				tmpl.ExecuteTemplate(w, "nav.html", LoginStatus{LoggedIn: "true"})
 				tmpl.ExecuteTemplate(w, "blog_viewpost.html", res)
@@ -92,7 +96,8 @@ func ViewBlogPost(w http.ResponseWriter, r *http.Request, postid httprouter.Para
 				token := postid.ByName("postid")
 				postDetails := rdxHget("newpost", token)
 				fmt.Println(postDetails)
-				res := BlogPost{PostTitle: postDetails[:], PostBody: postDetails[:], PostId: token,LoggedOut: "true"}
+				posttitle, postbody, location, event := readString(postDetails)
+				res := BlogPost{PostTitle: posttitle, PostBody: postbody, PostId: token, Location: location, Event: event, LoggedIn: "true"}
 				tmpl.ExecuteTemplate(w, "head.html", nil)
 				tmpl.ExecuteTemplate(w, "nav.html", LoginStatus{LoggedOut: "true"})
 				tmpl.ExecuteTemplate(w, "blog_viewpost.html", res)
@@ -113,8 +118,8 @@ func EditBlogPost(w http.ResponseWriter, r *http.Request, postid httprouter.Para
 				token := postid.ByName("postid")
 				postDetails := rdxHget("newpost", token)
 				fmt.Println(postDetails)
-				posttitle, postbody := readString(postDetails)
-				res := BlogPost{PostTitle: posttitle, PostBody: postbody, PostId: token,LoggedIn: "true"}
+				posttitle, postbody, location, event := readString(postDetails)
+				res := BlogPost{PostTitle: posttitle, PostBody: postbody, PostId: token, Location: location, Event: event, LoggedIn: "true"}
 				tmpl.ExecuteTemplate(w, "head.html", nil)
 				tmpl.ExecuteTemplate(w, "nav.html", LoginStatus{LoggedIn: "true"})
 				tmpl.ExecuteTemplate(w, "blog_editpost.html", res)
@@ -129,8 +134,10 @@ func EditBlogPost(w http.ResponseWriter, r *http.Request, postid httprouter.Para
 			fmt.Println("path", r.URL.Path)
 			posttitle := r.FormValue("posttitle")
 			postbody := r.FormValue("postbody")
+			location := r.FormValue("location")
+			event := r.FormValue("event")
 			token := r.FormValue("token")
-			rdxHset("newpost", token, posttitle + ":::" + postbody) 
+			rdxHset("newpost", token, posttitle + ":::" + postbody + ":::" + location + ":::" + event) 
 			http.Redirect(w, r, "/view/"+token, http.StatusSeeOther)
 		}
 		default : {
@@ -153,8 +160,8 @@ func DeleteBlogPost(w http.ResponseWriter, r *http.Request, postid httprouter.Pa
 	}
 }
 
-func readString(str string) (string, string){
+func readString(str string) (string, string, string, string){
 	parts := strings.Split(str, ":::")
 	//fmt.Println(parts[0])
-	return parts[0], parts[1]
+	return parts[0], parts[1], parts[2], parts[3]
 }

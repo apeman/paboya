@@ -4,14 +4,21 @@ import (
 	"context"
 	"fmt"
 	"log"
+//	"os"
 
 	gredis "github.com/redis/go-redis/v9"
 )
 
-var conn = gredis.NewClient(&gredis.Options{
-	Network: "tcp",
-	Addr:    "red-ci651lh8g3n4q9vvcrjg",
-})
+var redisdb *gredis.Client
+
+func init() {
+	redisdb = gredis.NewClient(&gredis.Options{
+		Addr:         ":6379",
+	})
+}
+var opt, _ = gredis.ParseURL(os.Getenv)
+var conn = gredis.NewClient(opt)
+
 
 func init() {
 	_, err := conn.Ping(context.Background()).Result()

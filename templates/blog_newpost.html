@@ -2,7 +2,15 @@
 
 <form method="POST" action="/new" >
     <input type="hidden" name="token" value="{{.Token}}">
-		<input type="text" name="posttitle" placeholder="Title" value="">
-		<textarea name="postbody" placeholder="PostBody" value="" ></textarea><br>
+		<input required type="text" name="posttitle" placeholder="Title" value="">
+		<textarea required name="postbody" placeholder="PostBody" value="" ></textarea><br>
+		
+
+		<details>
+  <summary>More</summary>
+  <p><input type="text" name="location" placeholder="Location" value=""></p>
+  <p><input type="text" name="event" placeholder="Event" value=""></p>
+</details>
+		
 		<input type="submit">
 	</form>

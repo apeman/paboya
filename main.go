@@ -9,7 +9,7 @@ import (
     "github.com/julienschmidt/httprouter"
 )
 
-const PORT = ":6438"
+const PORT = "localhost:4000"
 var tmpl = template.Must(template.ParseGlob("templates/*.html"))
 
 
@@ -22,8 +22,8 @@ func HandleRoutes() {
 
 	router := httprouter.New()
 //--------Blog--------//
-	router.GET("/Index", Index)
-	router.GET("/", Blog)
+	router.GET("/", Index)
+	router.GET("/Index", Blog)
 	router.GET("/new", CreateBlogPost)
 	router.POST("/new", CreateBlogPost)
 	router.GET("/edit/:postid", EditBlogPost)
