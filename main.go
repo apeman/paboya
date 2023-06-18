@@ -5,12 +5,11 @@ import (
   	"log"
 	"fmt"
 	"strings"
-	"os"
-	 
+	
     "github.com/julienschmidt/httprouter"
 )
 
-const PORT = os.Getenv("PORT")
+const PORT = ":5678"
 var tmpl = template.Must(template.ParseGlob("templates/*.html"))
 
 
