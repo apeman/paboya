@@ -16,7 +16,7 @@ func init() {
 		Addr:         ":6379",
 	})
 }
-var opt, _ = gredis.ParseURL(os.Getenv)
+var opt, _ = gredis.ParseURL(os.Getenv("rdx"))
 var conn = gredis.NewClient(opt)
 
 
